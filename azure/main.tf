@@ -113,6 +113,8 @@ resource "azurerm_network_security_group" "nsg" {
 resource "azurerm_subnet_network_security_group_association" "nsg-association1" {
   subnet_id                 = azurerm_subnet.subnet-a.id
   network_security_group_id = azurerm_network_security_group.nsg.id
+
+  depends_on = [ azurerm_network_security_group.nsg,azurerm_subnet.subnet-a ]
 }
 
 # Linux Virtual Machine
@@ -141,4 +143,5 @@ resource "azurerm_linux_virtual_machine" "vm" {
     sku       = "22_04-lts"
     version   = "latest"
   }
+  depends_on = [ azurerm_resource_group.rg,azurerm_network_interface.nic1 ]
 }

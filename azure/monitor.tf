@@ -28,6 +28,7 @@ resource "azurerm_monitor_metric_alert" "cpu-utilization" {
   action {
     action_group_id = azurerm_monitor_action_group.maingroup.id
   }
+  depends_on = [ azurerm_resource_group.rg,azurerm_linux_virtual_machine.vm ]
 }
 
 #memory-utilization
@@ -50,4 +51,5 @@ resource "azurerm_monitor_metric_alert" "cpu-utilization" {
   action {
     action_group_id = azurerm_monitor_action_group.maingroup.id
   }
+  depends_on = [ azurerm_resource_group.rg,azurerm_linux_virtual_machine.vm ]
 }
