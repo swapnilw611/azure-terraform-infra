@@ -33,4 +33,4 @@ jobs:
 
       - name: Terraform Apply
         working-directory: azure
-        run: terraform apply -auto-approve
+        run: terraform apply -auto-approve 

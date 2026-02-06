@@ -8,11 +8,7 @@ on:
 permissions:
   id-token: write
   contents: read
-  pull-requests: write
-
-concurrency:
-  group: terraform-azure-dev
-  cancel-in-progress: false  
+  pull-requests: write  
 
 jobs:
   plan:
@@ -42,4 +38,4 @@ jobs:
 
       - name: Terraform Plan
         working-directory: azure
-        run: terraform plan -lock-timeout=10m
+        run: terraform plan 
