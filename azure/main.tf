@@ -21,6 +21,12 @@ resource "azurerm_resource_group" "rg" {
 
 }
 
+resource "azurerm_resource_group" "rg1" {
+  name     = "rg123"
+  location = local.location
+
+}
+
 # Virtual Network
 resource "azurerm_virtual_network" "vnet1" {
   name                = local.virtual_network.name
