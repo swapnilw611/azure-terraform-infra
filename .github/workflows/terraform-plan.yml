@@ -1,9 +1,6 @@
 name: Terraform Plan
 
 on:
-  push:
-    branches:
-      - feature/**
   pull_request:
     branches:
       - main
@@ -32,10 +29,13 @@ jobs:
         uses: hashicorp/setup-terraform@v3
 
       - name: Terraform Init
+        working-directory: azure
         run: terraform init
 
       - name: Terraform Validate
+        working-directory: azure
         run: terraform validate
 
       - name: Terraform Plan
+        working-directory: azure
         run: terraform plan
